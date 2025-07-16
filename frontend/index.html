@@ -10,26 +10,32 @@
 
 <body>
 
-   <header class="topo">
-  <div class="container topo-flex">
+  <header class="topo">
+  <div class="container-topo">
+    
+    <!-- Logo ou texto opcional -->
+    <img src="img/logo.png" alt="Logo Vai de Peça" class="logo-topo" />
+
+    
     <!-- Campo de busca -->
     <div class="busca-container">
       <input type="text" id="buscaRapida" placeholder="Buscar produto..." autocomplete="off" />
       <div id="sugestoes"></div>
     </div>
 
-    <!-- Ícone do carrinho -->
-    <div id="btnMeuCarrinho" onclick="window.location.href='carrinho.html'">
-      <img src="img/carrinho.png" alt="Meu Carrinho" />
+    <!-- Carrinho -->
+    <div id="btnMeuCarrinho">
+      <img src="img/carrinho-de-compras.png" alt="Carrinho" />
       <span id="contador-carrinho">0</span>
     </div>
+    
+    
   </div>
 </header>
 
 
-    <section id="menu">
-        <img id="logo" src="img/logo.png" alt="Vai de Peça" class="logo">
-    </section>
+
+   
 
     <section id="segmentos">
   <button class="type" data-segmento="elétrica">
