@@ -1,3 +1,9 @@
+/* style.css */
+
+/* ===================== */
+/* Estilo base do usuário */
+/* ===================== */
+
 body {
   margin: 0;
   padding-bottom: 60px;
@@ -5,6 +11,11 @@ body {
   background-color: #f5f5f5;
   color: #222;
   min-height: 100vh;
+}
+
+
+html, body {
+  overflow-x: hidden;
 }
 
 /* Header completo */
@@ -17,10 +28,10 @@ header.topo {
 /* Container flexível */
 .container-topo {
   display: flex;
-  
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
+
 /* Linha superior: busca + carrinho lado a lado */
 .linha-superior {
   display: flex;
@@ -42,7 +53,7 @@ header.topo {
 /* Busca */
 .busca-container {
   flex: 1;
-  max-width: 600px;
+  max-width: 250px;
 }
 
 .busca-container input {
@@ -77,6 +88,7 @@ header.topo {
   padding: 2px 6px;
   font-weight: bold;
 }
+
 /* Logo centralizada */
 .logo-container {
   text-align: center;
@@ -86,7 +98,7 @@ header.topo {
   max-width: 90%;
 }
 
-
+/* Menu */
 #menu {
   display: flex;
   justify-content: center;
@@ -94,7 +106,6 @@ header.topo {
   background-color: #ecf1f8;
   padding: 20px 0;
 }
-
 
 #segmentos {
   display: flex;
@@ -135,7 +146,24 @@ header.topo {
   box-shadow: 0 0 8px rgba(91, 136, 178, 0.5);
 }
 
-    /*cards produtos*/
+/* Banner */
+#bannerIndex img {
+  width: 100%;
+  max-height: 300px; /* controla a altura máxima em desktop */
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  #bannerIndex img {
+    max-height: 180px;
+    border-radius: 0;
+  }
+}
+
+/* Cards produtos */
 .produtos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -144,7 +172,6 @@ header.topo {
   max-width: 1200px;
   margin: 0 auto 100px; /* espaço para o rodapé */
 }
-
 
 .card-produto {
   background: #fff;
@@ -205,7 +232,7 @@ header.topo {
   height: auto;
 }
 
-/*fim cards produtos*/
+/* Fim cards produtos */
 
 @media (max-width: 768px) {
   /* Menu e logo */
@@ -218,9 +245,6 @@ header.topo {
   }
 
   /* Busca */
-
-    
-
   .busca-container input[type="text"] {
     width: 100%;
     max-width: 100%;
@@ -229,15 +253,15 @@ header.topo {
 
   /* Segmentos */
   #segmentos .type {
-  width: 60px;
-  height: 60px;
-  padding: 8px;
-}
+    width: 60px;
+    height: 60px;
+    padding: 8px;
+  }
 
-#segmentos .type img {
-  width: 40px;
-  height: 40px;
-}
+  #segmentos .type img {
+    width: 40px;
+    height: 40px;
+  }
 
   /* Cards de produtos */
   .produtos-container {
@@ -262,7 +286,6 @@ header.topo {
   }
 }
 
-
 /* Rodapé fixo no final da tela */
 footer {
   position: fixed;
@@ -278,6 +301,270 @@ footer {
   z-index: 10;
 }
 
-html, body {
-  overflow-x: hidden;
+/* Estilo carrinho */
+.carrinho-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
 }
+
+#itens-carrinho .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.item-info {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.resumo-carrinho {
+  text-align: right;
+  margin-top: 20px;
+}
+
+#finalizarPedido {
+  background: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Centraliza o logo no carrinho */
+.logo-centralizada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+/* Aumenta o tamanho do logo */
+.logo-topo {
+  height: 100px;
+  max-width: 100%;
+}
+
+.topo-carrinho {
+  text-align: center;
+}
+
+.btn-voltar {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #5b88b2;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-voltar:hover {
+  background-color: #426a91;
+}
+
+/* Fim estilo carrinho */
+
+
+/* ========================= */
+/* Estilo Painel Admin (novo) */
+/* ========================= */
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* Header topo com logo centralizado */
+header.topo {
+  /* Mantido acima, fundo azul claro */
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+}
+
+.container-topo.logo-centralizada {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navegação - sem itens visíveis */
+/* Seu nav está vazio, mas se usar, pode estilizar aqui */
+
+/* Main painelAdmin */
+main#painelAdmin {
+  max-width: 1200px;
+  margin: 20px auto;
+  flex-grow: 1;
+  padding: 0 15px 40px;
+}
+
+/* Títulos */
+h1, h2, h3 {
+  margin-bottom: 10px;
+  color: #004a8a;
+}
+
+/* Caixas coloridas */
+.caixa {
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 0.1);
+}
+
+/* Cores base para caixas */
+.azul-claro {
+  background-color: #d9e8fb;
+  border: 1px solid #a2c0f8;
+}
+
+.verde-claro {
+  background-color: #d6f3d6;
+  border: 1px solid #97d597;
+}
+
+.laranja-claro {
+  background-color: #fde9d5;
+  border: 1px solid #f5c79e;
+}
+
+/* Formulários */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  padding: 8px 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #0072c6;
+  outline: none;
+}
+
+/* Textarea tamanho controlado */
+textarea {
+  resize: vertical;
+  min-height: 50px;
+  max-height: 150px;
+}
+
+/* Botões */
+button[type="submit"],
+button {
+  background-color: #0072c6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover,
+button:hover {
+  background-color: #005a9e;
+}
+
+/* Div form-botoes para botão no canto */
+.form-botoes {
+  margin-top: 12px;
+}
+
+/* Listas com scroll */
+.painel-scroll {
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #aaa;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+/* Lista de pessoas e pedidos */
+#listaPessoas,
+#lista-pedidos,
+#listaProduto {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Modal pedido */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-conteudo {
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.modal-conteudo h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Rodapé já está fixo */
+/* Não precisa alterar para o painel admin */
+

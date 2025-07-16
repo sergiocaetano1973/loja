@@ -1,0 +1,43 @@
+.carrinho-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+#itens-carrinho .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.item-info {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.resumo-carrinho {
+  text-align: right;
+  margin-top: 20px;
+}
+
+#finalizarPedido {
+  background: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}

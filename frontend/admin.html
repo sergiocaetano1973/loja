@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Painel Admin - Vai de Peça</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="topo">
+  <div class="container-topo logo-centralizada">
+    <div class="topo-carrinho">
+      <img src="img/logo.png" alt="Logo Vai de Peça" class="logo-topo" />
+       
+    </div>
+  </div>
+</header>
+
+  <!-- Navegação Superior -->
+  <nav>
+    <div class="nav-grupo-esquerda">
+     
+
+     
+
+     
+
+    <!-- Links Direita: Carrinho / Login -->
+    
+    <!-- Menu Categorias -->
+    <ul id="menu-segmentos" class="menu-segmentos" hidden>
+      <li class="categoria">
+        <a href="#">Elétrica</a>
+        <ul class="subcategorias" hidden>
+          <li><a href="#" data-sub="tomadas">Tomadas</a></li>
+          <li><a href="#" data-sub="disjuntores">Disjuntores</a></li>
+          <li><a href="#" data-sub="fios">Fios e Cabos</a></li>
+        </ul>
+      </li>
+      <li class="categoria">
+        <a href="#">Hidráulica</a>
+        <ul class="subcategorias" hidden>
+          <li><a href="#" data-sub="torneiras">Torneiras</a></li>
+          <li><a href="#" data-sub="registros">Registros</a></li>
+          <li><a href="#" data-sub="conexoes">Conexões</a></li>
+        </ul>
+      </li>
+      <li class="categoria">
+        <a href="#">Linha Branca</a>
+        <ul class="subcategorias" hidden>
+          <li><a href="#" data-sub="geladeiras">Geladeiras</a></li>
+          <li><a href="#" data-sub="lavadoras">Lavadoras</a></li>
+        </ul>
+      </li>
+      <li class="categoria">
+        <a href="#">Ferramentas</a>
+        <ul class="subcategorias" hidden>
+          <li><a href="#" data-sub="chaves">Chaves</a></li>
+          <li><a href="#" data-sub="furadeiras">Furadeiras</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Conteúdo Principal -->
+  <main id="painelAdmin">
+
+    <h1>Painel Administrativo</h1>
+    <!-- Cadastro de Pessoas -->
+    <div class="admin-topo">
+      <!-- Cadastro de Pessoas -->
+      <section id="cadastroPessoa" class="caixa azul-claro">
+        <h2>Cadastro de Pessoas</h2>
+        <ul>
+          <form id="formPessoa">
+            <label for="nomePessoa">Nome completo <span aria-hidden="true">*</span></label>
+            <input type="text" id="nomePessoa" placeholder="Nome completo" required aria-required="true" />
+
+            <label for="enderecoPessoa">Endereço <span aria-hidden="true">*</span></label>
+            <input type="text" id="enderecoPessoa" placeholder="Endereço" required aria-required="true" />
+
+            <label for="tipoPessoa">Tipo <span aria-hidden="true">*</span></label>
+            <select id="tipoPessoa" required aria-required="true">
+              <option value="">Tipo</option>
+              <option value="cliente">Cliente</option>
+              <option value="funcionario">Funcionário</option>
+            </select>
+
+            <div id="infoFuncionario" style="display:none;">
+              <label for="cargoPessoa">Cargo</label>
+              <input type="text" id="cargoPessoa" placeholder="Cargo" />
+
+              <label><input type="checkbox" id="permissaoCadastro" /> Pode cadastrar produto</label>
+              <label><input type="checkbox" id="permissaoVendas" /> Pode ver vendas</label>
+            </div>
+
+            <button type="submit">Salvar Pessoa</button>
+          </form>
+        </ul>
+
+        <hr />
+        <section id="visualizacaoPessoas">
+          <h3>Pessoas Cadastradas</h3>
+          <div id="listaPessoas" class="painel-scroll"></div>
+        </section>
+      </section>
+
+      <!-- Pedidos Recebidos -->
+      <section id="pedidos-admin" class="caixa verde-claro">
+        <h2>Pedidos Recebidos</h2>
+        <ul id="lista-pedidos" class="painel-scroll"></ul>
+
+        <!-- Modal de Detalhes do Pedido -->
+        <div id="modalPedido" class="modal hidden">
+          <div class="modal-conteudo">
+            <h3>Detalhes do Pedido</h3>
+            <div id="detalhesPedido"></div>
+            <label for="statusPedido"><strong>Status:</strong></label>
+            <select id="statusPedido">
+              <option value="Pendente">Pendente</option>
+              <option value="Pago">Pago</option>
+              <option value="Em Separação">Em Separação</option>
+              <option value="Enviado">Enviado</option>
+              <option value="Entregue">Entregue</option>
+            </select>
+            <button id="btnAtualizarStatus">Atualizar Status</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="cadastroProduto" class="caixa laranja-claro">
+      <!-- Cadastro / Edição de Produto -->
+      <section class="form-card">
+        <h2>Cadastro / Edição de Produto</h2>
+
+        <form id="form-produto">
+
+          <div class="form-grupo">
+            <label for="segmento">Segmento:</label>
+            <select id="segmento" name="segmento" required><br>
+              <option value="">Selecione</option>
+              <option value="elétrica">Elétrica</option>
+              <option value="hidráulica">Hidráulica</option>
+              <option value="linha branca">Linha Branca</option>
+              <option value="ferramentas">Ferramentas</option>
+            </select><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="voltagem">Voltagem:</label>
+            <select id="voltagem" name="voltagem" required><br>
+              <option value="">Selecione</option>
+              <option value="110V">110V</option>
+              <option value="220V">220V</option>
+              <option value="Bivolt">Bivolt</option>
+              <option value="nenhum">Nenhum</option>
+            </select><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="tipoEletrodomestico">Tipo de Eletrodoméstico:</label>
+            <input type="text" id="tipoEletrodomestico" name="tipoEletrodomestico" required><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca" required><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="caracteristica">Características:</label><br>
+            <textarea id="caracteristica" name="caracteristica" rows="2" required></textarea><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="codigoProduto">Código do Produto:</label>
+            <input type="text" id="codigoProduto" name="codigoProduto" required><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="localEstocagem">Local de Estocagem:</label>
+            <input type="text" id="localEstocagem" name="localEstocagem" required><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="preco">Preço (R$):</label>
+            <input type="number" step="0.01" id="preco" name="preco" required><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="estoque">Estoque:</label>
+            <input type="number" id="estoque" name="estoque" required><br>
+          </div>
+
+          <div class="form-grupo">
+            <label for="imagem">Nome da imagem (ex: imagem.png):</label>
+            <input type="text" id="imagem" name="imagem" required><br>
+          </div>
+
+          <div class="form-botoes"><button type="submit">Salvar Produto</button></div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Lista de Produto -->
+    <div id="listaProduto" class="painel-lista"></div>
+
+    <hr />
+
+    <div id="vendasAdmin" class="caixa azul-claro">
+      <!-- Vendas -->
+      <section id="Vendas">
+        <h2>Vendas Concluídas</h2>
+
+        <!-- Filtro de Período -->
+        <div id="filtro-vendas">
+          <hr />
+          <section id="gerarPixAdmin">
+            <h2>Gerar QR Code Pix</h2>
+            <form id="formPix">
+              <label for="numeroPedidoPix">Número do Pedido:</label>
+              <input type="text" id="numeroPedidoPix" placeholder="Ex: VP-20250712-0001" required />
+
+              <label for="valorPix">Valor (R$):</label>
+              <input type="number" id="valorPix" required step="0.01" min="0.01" />
+
+              <label for="mensagemPix">Mensagem adicional:</label>
+              <input type="text" id="mensagemPix" placeholder="Ex: Pagamento do pedido" />
+
+              <button type="submit">🔁 Gerar QR Code</button>
+            </form>
+
+             <div id="resultadoPix" style="margin-top: 20px;"></div>
+          </section>
+        </div>
+      </section>
+    </div>
+    <hr />
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <p>&copy; 2025 Vai de Peça - Todos os direitos reservados</p>
+  </footer>
+
+</body>
+
+</html>
