@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vai de Peça - Sua loja de peças residenciais</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+   <header class="topo">
+  <div class="container topo-flex">
+    <!-- Campo de busca -->
+    <div class="busca-container">
+      <input type="text" id="buscaRapida" placeholder="Buscar produto..." autocomplete="off" />
+      <div id="sugestoes"></div>
+    </div>
+
+    <!-- Ícone do carrinho -->
+    <div id="btnMeuCarrinho" onclick="window.location.href='carrinho.html'">
+      <img src="img/carrinho.png" alt="Meu Carrinho" />
+      <span id="contador-carrinho">0</span>
+    </div>
+  </div>
+</header>
+
+
+    <section id="menu">
+        <img id="logo" src="img/logo.png" alt="Vai de Peça" class="logo">
+    </section>
+
+    <section id="segmentos">
+  <button class="type" data-segmento="elétrica">
+    <img src="img/icone-eletrica.png" alt="Elétrica">
+  </button>
+  <button class="type" data-segmento="hidráulica">
+    <img src="img/hidraulica.jpg" alt="Hidráulica">
+  </button>
+  <button class="type" data-segmento="linha branca">
+    <img src="img/linha-branca.jpg" alt="Linha Branca">
+  </button>
+</section>
+
+
+    <main id="produtos" class="produtos-container">
+    <!-- Cards serão inseridos via JS -->
+  </main>
+
+
+    <footer class="rodape">
+        <p>&copy; 2025 Vai de Peça - Todos os direitos reservados</p>
+    </footer>
+
+     <script src="js/main.js"></script>
+
+</body>
+
+</html>
